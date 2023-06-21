@@ -15,8 +15,8 @@ export class SellerAuthComponent {
       password: new FormControl(''),
     });
   }
-  onSubmit(){
+
+  onSubmit() {
     console.log(this.form.value);
-    
   }
 }
