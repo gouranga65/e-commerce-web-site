@@ -11,6 +11,42 @@
       "userName": "sam",
       "password": "1234",
       "id": 2
+    },
+    {
+      "email": "sg",
+      "userName": "sgssdgsd",
+      "password": "sdg",
+      "id": 3
+    },
+    {
+      "email": "meao@",
+      "userName": "meao",
+      "password": "789",
+      "id": 4
+    },
+    {
+      "email": "simba@",
+      "userName": "sam",
+      "password": "9800",
+      "id": 5
+    },
+    {
+      "email": "saru@",
+      "userName": "saru",
+      "password": "sam",
+      "id": 6
+    },
+    {
+      "email": "mahato@",
+      "userName": "mahato",
+      "password": "321",
+      "id": 7
+    },
+    {
+      "email": "zuhi@",
+      "userName": "zuhi",
+      "password": "4234",
+      "id": 8
     }
   ]
 }

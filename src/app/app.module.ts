@@ -8,6 +8,8 @@ import { HomeComponent } from './component/home/home.component';
 import { SellerAuthComponent } from './component/seller-auth/seller-auth.component';
 import { ErrorPageComponent } from './component/error-page/error-page.component';
 import { ReactiveFormsModule } from "@angular/forms";
+import { HttpClientModule } from '@angular/common/http';
+import { SellerHomeComponent } from './component/seller-home/seller-home.component';
 
 @NgModule({
   declarations: [
@@ -15,12 +17,14 @@ import { ReactiveFormsModule } from "@angular/forms";
     HeaderComponent,
     HomeComponent,
     SellerAuthComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    SellerHomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
