@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { FormControl, FormGroup, NgForm } from '@angular/forms';
+import { login } from 'data-type';
 import { SellersService } from 'src/app/service/sellers.service';
-import { SignUp } from 'data-type';
 @Component({
   selector: 'app-seller-auth',
   templateUrl: './seller-auth.component.html',
@@ -10,24 +9,26 @@ import { SignUp } from 'data-type';
 })
 export class SellerAuthComponent implements OnInit {
   showLogin = false;
-  constructor(private _service: SellersService, private _router: Router) {}
+  ngOnInit(): void {}
+  constructor(private _service: SellersService) {}
+  // <!-- seller sign up -->
   form = new FormGroup({
     email: new FormControl(''),
     userName: new FormControl(''),
     password: new FormControl(''),
   });
+  onSubmit() {
+    this._service.userSignUp(this.form.value).subscribe((result) => {});
+  }
+  // <!-- seller log in -->
   sellerForm = new FormGroup({
     sellerEmail: new FormControl(''),
     sellerPassword: new FormControl(''),
   });
-  ngOnInit(): void {}
-
-  onSubmit() {
-    this._service.userSignUp(this.form.value).subscribe((result) => {});
+  getSellerData(data: login) {
+    this._service.userLogin(data);
   }
-  onLogin() {
-    console.log(this.sellerForm.value);
-  }
+  // toggle between log in and sign up
   openLogin() {
     this.showLogin = true;
   }

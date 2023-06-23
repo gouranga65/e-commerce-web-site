@@ -7,7 +7,7 @@ import { HeaderComponent } from './component/header/header.component';
 import { HomeComponent } from './component/home/home.component';
 import { SellerAuthComponent } from './component/seller-auth/seller-auth.component';
 import { ErrorPageComponent } from './component/error-page/error-page.component';
-import { ReactiveFormsModule } from "@angular/forms";
+import { ReactiveFormsModule,FormsModule } from "@angular/forms";
 import { HttpClientModule } from '@angular/common/http';
 import { SellerHomeComponent } from './component/seller-home/seller-home.component';
 
@@ -24,7 +24,8 @@ import { SellerHomeComponent } from './component/seller-home/seller-home.compone
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

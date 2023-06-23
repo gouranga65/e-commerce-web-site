@@ -1,3 +1,4 @@
+<!-- seller sign up -->
 <form [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="!showLogin">
   <label for="email">email</label>
   <input type="email" formControlName="email" />
@@ -10,13 +11,11 @@
 </form>
 
 <!-- seller login -->
-<form [formGroup]="sellerForm" (ngSubmit)="onLogin()" *ngIf="showLogin">
+<form #sellerForm="ngForm" (ngSubmit)="getSellerData(sellerForm.value)" *ngIf="showLogin">
   <label for="email">email</label>
-  <input type="email" formControlName="sellerEmail" />
+  <input type="email" ngModel name="email"  />
   <label for="password">password</label>
-  <input type="password" formControlName="sellerPassword" />
+  <input type="password" ngModel name="password"  />
   <button type="submit" class="submit">login</button>
   <a (click)="openSignUp()" class="button">new user sign up</a>
 </form>
-<!-- for json server 👇 -->
-<!-- https://github.com/typicode/json-server -->
