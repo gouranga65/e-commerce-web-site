@@ -1,11 +1,11 @@
 <!-- seller sign up -->
-<form [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="!showLogin">
+<form #sellerSignUp="ngForm" (ngSubmit)="onSubmit(sellerSignUp.value)" *ngIf="!showLogin">
   <label for="email">email</label>
-  <input type="email" formControlName="email" />
+  <input type="email" ngModel name="email"/>
   <label for="name">name</label>
-  <input type="text" formControlName="userName" />
+  <input type="text" ngModel name="name"/>
   <label for="password">password</label>
-  <input type="password" formControlName="password" />
+  <input type="password" ngModel name="password"/>
   <button type="submit" class="submit">sign up</button>
   <a (click)="openLogin()" class="button">already have acc login</a>
 </form>

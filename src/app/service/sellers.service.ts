@@ -1,6 +1,6 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { login } from 'data-type';
+import { login, signUp } from 'data-type';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 @Injectable({
@@ -10,8 +10,15 @@ export class SellersService {
   isSellerLogin = new BehaviorSubject<boolean>(false);
   isLoginError = new EventEmitter<boolean>(false);
   constructor(private _http: HttpClient, private _router: Router) {}
-  userSignUp(data: any) {
-    return this._http.post('http://localhost:3000/seller', data);
+  userSignUp(data: signUp) {
+    this._http
+      .post('http://localhost:3000/seller', data, { observe: 'response' })
+      .subscribe((result) => {
+        if (result) {
+          localStorage.setItem('seller', JSON.stringify(result.body)); //to save data in local storage
+          this._router.navigate(['sellerHome']);
+        }
+      });
   }
   userLogin(data: login) {
     this._http
@@ -23,7 +30,7 @@ export class SellersService {
         if (result && result.body && result.body.length) {
           console.log('user log in');
           localStorage.setItem('seller', JSON.stringify(result.body)); //to save data in local storage
-          this._router.navigate(['/sellerHome']);
+          this._router.navigate(['sellerHome']);
         } else {
           console.log('user log in failed');
           this.isLoginError.emit(true);

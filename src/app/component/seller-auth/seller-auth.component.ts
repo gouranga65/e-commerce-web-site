@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, NgForm } from '@angular/forms';
-import { login } from 'data-type';
+import { Router } from '@angular/router';
+import { login, signUp } from 'data-type';
 import { SellersService } from 'src/app/service/sellers.service';
 @Component({
   selector: 'app-seller-auth',
@@ -11,28 +11,20 @@ export class SellerAuthComponent implements OnInit {
   showLogin = false;
   authError: string = '';
   ngOnInit(): void {}
-  constructor(private _service: SellersService) {}
+  constructor(private _service: SellersService, private _router: Router) {}
   // <!-- seller sign up -->
-  form = new FormGroup({
-    email: new FormControl(''),
-    userName: new FormControl(''),
-    password: new FormControl(''),
-  });
-  onSubmit() {
-    this._service.userSignUp(this.form.value).subscribe((result) => {});
+  onSubmit(data: signUp) {
+    // console.log(data);
+    this._service.userSignUp(data);
   }
   // <!-- seller log in -->
-  sellerForm = new FormGroup({
-    sellerEmail: new FormControl(''),
-    sellerPassword: new FormControl(''),
-  });
   getSellerData(data: login) {
-    this.authError="";
+    this.authError = '';
     this._service.userLogin(data);
     this._service.isLoginError.subscribe((error) => {
       if (error) {
         this.authError = 'email and pass is not match';
-      } 
+      }
     });
   }
   // toggle between log in and sign up
