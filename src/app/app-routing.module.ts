@@ -4,17 +4,16 @@ import { HomeComponent } from './component/home/home.component';
 import { SellerAuthComponent } from './component/seller-auth/seller-auth.component';
 import { ErrorPageComponent } from './component/error-page/error-page.component';
 import { SellerHomeComponent } from './component/seller-home/seller-home.component';
-import { authGuard } from './authentication/auth.guard';
 
 const routes: Routes = [
-  {path:"",component:HomeComponent},
-  {path:"seller",component:SellerAuthComponent},
-  {path:"sellerHome",component:SellerHomeComponent,canActivate:[authGuard]},
-  {path:"**",component:ErrorPageComponent},
+  { path: '', component: HomeComponent },
+  { path: 'seller', component: SellerAuthComponent },
+  { path: 'sellerHome', component: SellerHomeComponent },
+  { path: '**', component: ErrorPageComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
