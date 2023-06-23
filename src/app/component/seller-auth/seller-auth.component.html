@@ -11,6 +11,7 @@
 </form>
 
 <!-- seller login -->
+{{authError}}
 <form #sellerForm="ngForm" (ngSubmit)="getSellerData(sellerForm.value)" *ngIf="showLogin">
   <label for="email">email</label>
   <input type="email" ngModel name="email"  />

@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class SellersService {
-  isSellerLogIn = new BehaviorSubject<boolean>(false);
+  isLoginError=new EventEmitter<boolean>(false);
   constructor(private _http: HttpClient, private _router: Router) {}
   userSignUp(data: any) {
     return this._http.post('http://localhost:3000/seller', data);
@@ -27,6 +27,7 @@ export class SellersService {
           this._router.navigate(['sellerHome']);
         } else {
           console.log('user log in failed');
+          this.isLoginError.emit(true);
         }
       });
   }
