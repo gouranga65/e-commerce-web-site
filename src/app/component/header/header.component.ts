@@ -7,19 +7,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  menuType="default";
+  menuType = 'default';
   constructor(private _router: Router) {}
   ngOnInit() {
-    this._router.events.subscribe((result: any) => {
-      if (result.url) {
-        if (localStorage.getItem('seller') && result.url.includes('seller')) {
-          console.log('in seller area');
-          this.menuType="seller"
+    this._router.events.subscribe((val: any) => {  
+      if (val.url) {
+        if (localStorage.getItem('seller') && val.url.includes('seller')) {
+          this.menuType = 'seller';
         } else {
-          console.log('out seller area');
-          this.menuType="default";
+          this.menuType = 'default';
         }
       }
     });
+  }
+  logOut() {
+    localStorage.removeItem('seller');
+    this._router.navigate(['/']);
   }
 }
