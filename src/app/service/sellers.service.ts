@@ -20,7 +20,15 @@ export class SellersService {
         }
       });
   }
+  reLoadSeller() {
+    if (localStorage.getItem('seller')) {
+      this.isSellerLogin.next(true);
+      this._router.navigate(['sellerHome']);
+    }
+  }
   userLogin(data: login) {
+    console.log(data);
+
     this._http
       .get(
         `http://localhost:3000/seller?email=${data.email}&password=${data.password}`,

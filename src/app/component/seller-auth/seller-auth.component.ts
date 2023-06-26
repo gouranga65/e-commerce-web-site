@@ -10,7 +10,9 @@ import { SellersService } from 'src/app/service/sellers.service';
 export class SellerAuthComponent implements OnInit {
   showLogin = false;
   authError: string = '';
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this._service.reLoadSeller();
+  }
   constructor(private _service: SellersService, private _router: Router) {}
   // <!-- seller sign up -->
   onSubmit(data: signUp) {
@@ -19,13 +21,14 @@ export class SellerAuthComponent implements OnInit {
   }
   // <!-- seller log in -->
   getSellerData(data: login) {
-    this.authError = '';
+    // this.authError = '';
     this._service.userLogin(data);
-    this._service.isLoginError.subscribe((error) => {
-      if (error) {
-        this.authError = 'email and pass is not match';
-      }
-    });
+    // this._service.isLoginError.subscribe((error) => {
+    //   if (error) {
+    //     this.authError = 'email and pass is not match';
+    //   }
+    // });
+    
   }
   // toggle between log in and sign up
   openLogin() {
