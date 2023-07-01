@@ -7,13 +7,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
+  sellerName = '';
   menuType = 'default';
   constructor(private _router: Router) {}
   ngOnInit() {
-    this._router.events.subscribe((val: any) => {  
+    this._router.events.subscribe((val: any) => {
       if (val.url) {
         if (localStorage.getItem('seller') && val.url.includes('seller')) {
           this.menuType = 'seller';
+          if (localStorage.getItem('seller')) {
+            let sellerStore = localStorage.getItem('seller');
+            let sellerData = sellerStore && JSON.parse(sellerStore)[0];
+            this.sellerName = sellerData.userName;
+          }
         } else {
           this.menuType = 'default';
         }
