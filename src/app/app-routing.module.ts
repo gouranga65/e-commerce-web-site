@@ -4,11 +4,13 @@ import { HomeComponent } from './component/home/home.component';
 import { SellerAuthComponent } from './component/seller-auth/seller-auth.component';
 import { ErrorPageComponent } from './component/error-page/error-page.component';
 import { SellerHomeComponent } from './component/seller-home/seller-home.component';
+import { AddProductComponent } from './component/add-product/add-product.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'seller', component: SellerAuthComponent },
   { path: 'sellerHome', component: SellerHomeComponent },
+  { path: 'addProduct', component: AddProductComponent },
   { path: '**', component: ErrorPageComponent },
 ];
 

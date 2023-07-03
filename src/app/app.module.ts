@@ -10,6 +10,7 @@ import { ErrorPageComponent } from './component/error-page/error-page.component'
 import { ReactiveFormsModule,FormsModule } from "@angular/forms";
 import { HttpClientModule } from '@angular/common/http';
 import { SellerHomeComponent } from './component/seller-home/seller-home.component';
+import { AddProductComponent } from './component/add-product/add-product.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SellerHomeComponent } from './component/seller-home/seller-home.compone
     HomeComponent,
     SellerAuthComponent,
     ErrorPageComponent,
-    SellerHomeComponent
+    SellerHomeComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,

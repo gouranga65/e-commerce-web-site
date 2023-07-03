@@ -8,15 +8,11 @@
     <ul *ngSwitchCase="'default'">
       <li><a routerLink="/">home</a></li>
       <li><a routerLink="seller">seller</a></li>
-      <!-- <li><a routerLink="">login</a></li> -->
-      <!-- <li><a routerLink="">cart</a></li> -->
     </ul>
     <ul *ngSwitchCase="'seller'">
-      <li><a routerLink="/">add product</a></li>
-      <li><a routerLink="seller">product list</a></li>
+      <li><a routerLink="addProduct">add product</a></li>
       <li><a (click)="logOut()">log out</a></li>
-      <li><a href="#">{{sellerName | titlecase}}</a></li>
-      <!-- <li>{{sellerName}}</li> -->
+      <li>{{sellerName | titlecase}}</li>
     </ul>
   </div>
 </nav>
